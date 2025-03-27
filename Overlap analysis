@@ -1,0 +1,85 @@
+### Title / date / author
+
+
+
+### Packages and libraries upload
+install.packages("readxl")
+library(readxl)
+
+
+### Load and rename data
+
+SIDIAP <- read.csv(´extraction SIDIAP.csv´) 
+HUVH <- read.csv(´extraction.HUVH.csv´)
+
+
+# THE FOLLOWING STEPS SHOULD BE DONE INDIVIDUALLY PER DATABASE
+### Format and names of variables
+
+colnames(SIDIAP)[which(names(SIDIAP) == "variable from sidiap")] <- "patid_sidiap"
+patid <- as.factor(patid)
+
+colnames(SIDIAP)[which(names(SIDIAP) == "variable from sidiap")] <- "LOC_sidiap"
+LOC <- as.factor(LOC)
+
+colnames(SIDIAP)[which(names(SIDIAP) == "variable from sidiap")] <- "date_diagnosis_sidiap"
+date_diagnosis <- as.Date.character(date_diagnosis)
+
+
+
+
+### General visualisation, missingness, duplicates and consistency
+
+summary(SIDIAP)
+pairs(SIDIAP)
+boxplot(age$SIDIAP)
+barplot(LOC$SIDIAP)
+
+# function that allows you to detect the number of missing values for a variable
+# count duplicates of patient ids
+
+
+
+### Create calculated variables and output categorisations
+
+age
+agebands
+sex 
+
+
+
+### Preliminary counts and percentages
+
+number of individuals per ageband or sex
+
+counts per LOC
+
+
+
+# MERGE THE TWO DATABASES
+
+SIDIAP_VHUH <-merge(db1, db2, by="patid")
+
+### Create calculated variables and output categorisations
+
+lag
+
+### True positives sums and prepare sensitivity numbers
+
+# Main analysis
+
+sensitivity main <- true positives/ total
+
+
+
+# Secondary analysis
+
+
+### Tables and plots
+
+
+
+
+
+### Save
+
